@@ -5,11 +5,17 @@
             <div class="col-xl-4 col-lg-6 col-md-12">
                 <div class="footer-content">
                     <a href="#">
-                        <img src="{{asset('assets/img/footer-logo.png')}}" alt="" class="img-fluid" />
+                        <img src="{{asset('Image').'/'.$setting->logo}}" alt="" class="img-fluid" />
+                        {{-- <img src="{{asset('assets/img/footer-logo.png')}}" alt="" class="img-fluid" /> --}}
                     </a>
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-                        ipsam maiores deserunt eum nihil, a quo qui aliquam?
+                        @php
+                        $setting = settings();
+                        @endphp
+                        {{$setting->address}}
+
+                        {{-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
+                        ipsam maiores deserunt eum nihil, a quo qui aliquam? --}}
                     </p>
                 </div>
             </div>
@@ -31,14 +37,27 @@
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
                         <li>
-                            <a href="tel:832-863-6955">832-863-6955</a>
+                            <a href="tel:832-863-6955">
+                                @php
+                                $setting = settings();
+                                @endphp
+                                {{$setting->contact}}
+            </a>
                         </li>
                         <li>
-                            <a href="#">257 Fireweed Ln, Ketchikan, Kansas City 99901, USA
+                            <a href="#">                    @php
+                                $setting = settings();
+                                @endphp
+                                {{$setting->address}}
+
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:info@iMovekc.com">info@iMovekc.com</a>
+                            <a href="mailto:info@iMovekc.com">                    @php
+                                $setting = settings();
+                                @endphp
+                                {{$setting->email}}
+            </a>
                         </li>
                     </ul>
                 </div>
@@ -48,13 +67,18 @@
                     <h3>We're Social</h3>
                     <ul class="footer-social">
                         <li>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            @php
+                            $setting = settings();
+                            @endphp
+
+
+                            <a href="{{$setting->social_facebook}}"><i class="fab fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="{{$setting->social_instagram}}"><i class="fab fa-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="{{$setting->social_linkedin}}"><i class="fab fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>

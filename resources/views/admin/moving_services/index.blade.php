@@ -23,7 +23,7 @@
         <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4"></div>
-                <div class="col-md-4" align="right"><a class="btn btn-primary" href="{{route('moving.create')}}" >Add Moving Services</a></div> <br><br>
+                <div class="col-md-4" align="right"><a class="btn btn-primary" href="{{route('moving_create')}}" >Add Moving Service</a></div> <br><br>
         </div>
         <div class="row">
             <table class="table">
@@ -40,11 +40,13 @@
                     @php
                         $i=0;
                     @endphp
-                    @foreach ($moving_services as $item)
+                    @foreach ($moving_service as $item)
                     <tr>
                         <th scope="row">{{++$i}}</th>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->image}}</td>
+                        <td>
+                          <img src="{{asset('Image').'/'.$item->image}}" alt="" class="img-fluid" style="width: 50px;height:50px" />
+                        </td>
                         <td>{{$item->description}}</td>
                         <td>
                             <a href="{{route('moving.edit',['id'=>$item->id])}}"><i class="fas fa-edit" style="color:green"></i></a>

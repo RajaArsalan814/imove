@@ -29,7 +29,6 @@ $activePage = basename($_SERVER['PHP_SELF'], '.php');
 <header class="header">
     <div class="container">
         <ul class="nav-contact nav-contact--mobile">
-
             <li>
                 <a href="tel:129-569-5986">
                     <i class="fas fa-phone"></i>
@@ -48,25 +47,37 @@ $activePage = basename($_SERVER['PHP_SELF'], '.php');
             <li>
                 <a href="#">
                     <i class="fas fa-map-marker-alt"></i>
-                    99 Roving St.. Kansas City
+
+                    @php
+                    $setting = settings();
+                    @endphp
+                    {{$setting->address}}
+
                 </a>
             </li>
             <li>
                 <a href="tel:129-569-5986">
                     <i class="fas fa-phone"></i>
-                    +129-569-5986
+                    @php
+                    $setting = settings();
+                    @endphp
+                    {{$setting->contact}}
                 </a>
             </li>
             <li>
                 <a href="mailto:info@imovekc.com">
                     <i class="fas fa-envelope"></i>
-                    info@imovekc.com
+                    @php
+                    $setting = settings();
+                    @endphp
+                    {{$setting->email}}
+
                 </a>
             </li>
         </ul>
         <nav class="navbar navbar-expand-xl">
             <a class="navbar-brand" href="{{route('main')}}">
-                <img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid" />
+                <img src="{{asset('Image').'/'.$setting->logo}}" alt="" class="img-fluid" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -103,3 +114,5 @@ $activePage = basename($_SERVER['PHP_SELF'], '.php');
         </nav>
     </div>
 </header>
+
+

@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Setting;
+use App\Models\MovingService;
 
 class websiteController extends Controller
 {
     public function main(){
-        return view('website.index');
+
+        $setting = Setting::first();
+        $moving_service = MovingService::get();
+        return view('website.index',compact('setting','moving_service'));
     }
     public function about(){
         return view('website.about');

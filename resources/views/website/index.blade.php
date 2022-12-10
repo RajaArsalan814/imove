@@ -87,25 +87,29 @@
           <h2>What We Offer</h2>
         </div>
         <div class="row">
+          @php
+              $i=1;
+          @endphp
+          @foreach ($moving_service as $item)
           <div class="col-xl-3 col-lg-6 col-md-12">
             <div class="service-card">
               <figure>
-                <img src="{{asset('assets/img/service-1.png')}}" alt="" class="img-fluid" />
+                <img src="{{asset('Image/').'/'.$item->image}}" alt="" class="img-fluid" />
                 <div class="service-content">
-                  <h6 class="number">01</h6>
+                  <h6 class="number">{{$i++}}</h6>
                   <div class="service-name">
-                    <h3>Local moving</h3>
+                    <h3>{{$item->name}}</h3>
                     <i class="far fa-arrow-right"></i>
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ab consectetur consequuntur iste.
+                    {{$item->description}}
                   </p>
                 </div>
               </figure>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
+          @endforeach
+          {{-- <div class="col-xl-3 col-lg-6 col-md-12">
             <div class="service-card">
               <figure>
                 <img src="{{asset('assets/img/service-2.png')}}" alt="" class="img-fluid" />
@@ -210,6 +214,7 @@
                     Ab consectetur consequuntur iste.
                   </p>
                 </div>
+
               </figure>
             </div>
           </div>
@@ -230,7 +235,7 @@
                 </div>
               </figure>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>
